@@ -26,6 +26,7 @@ li{
     border-top: 1px solid #dadadaa1;
     padding: 4vw 0vw;
     text-transform: uppercase;
+    position: relative;
 }
 li:nth-last-child(1){
     border-bottom: 1px solid #dadadaa1;
@@ -33,6 +34,39 @@ li:nth-last-child(1){
 li>h1{
     @apply text-[10vw] text-white/60;
 }
+
+li>img{
+    height: 120%;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    scale: 0.85;
+}
+
+.wrapper-img{
+    animation: imageScrollerSmallScreen 5s infinite linear;
+}
+
+@layer utilities{
+    @keyframes imageScrollerBigScreen{
+        0%{
+            transform: translateX(0%);
+        }
+        100%{
+            transform: translateX(-105%);
+        }
+    }
+
+    @keyframes imageScrollerSmallScreen{
+        0%{
+            transform: translateX(0%);
+        }
+        100%{
+            transform: translateX(-101.5%);
+        }
+    }
+}
+
 
 @media (min-width:768px) {
     li{
@@ -42,4 +76,8 @@ li>h1{
         @apply text-[7vw];
         font-weight: 600;
     }
+    .wrapper-img{
+    animation: imageScrollerBigScreen 5s infinite linear;
+}
+
 }
