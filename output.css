@@ -187,8 +187,11 @@
   .h-screen {
     height: 100vh;
   }
-  .min-h-screen {
-    min-height: 100vh;
+  .min-h-\[35vh\] {
+    min-height: 35vh;
+  }
+  .min-h-\[70vh\] {
+    min-height: 70vh;
   }
   .w-3\/4 {
     width: calc(3/4 * 100%);
@@ -198,6 +201,12 @@
   }
   .w-screen {
     width: 100vw;
+  }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .flex-col {
     flex-direction: column;
@@ -216,6 +225,9 @@
   }
   .gap-\[0\.8vw\] {
     gap: 0.8vw;
+  }
+  .gap-\[5vw\] {
+    gap: 5vw;
   }
   .overflow-x-hidden {
     overflow-x: hidden;
@@ -284,6 +296,11 @@
     --tw-backdrop-blur: blur(var(--blur-lg));
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .md\:my-\[10vh\] {
+    @media (width >= 48rem) {
+      margin-block: 10vh;
+    }
   }
   .md\:mt-\[1\.5vh\] {
     @media (width >= 48rem) {
@@ -375,6 +392,7 @@ li {
   border-top: 1px solid #dadadaa1;
   padding: 4vw 0vw;
   text-transform: uppercase;
+  position: relative;
 }
 li:nth-last-child(1) {
   border-bottom: 1px solid #dadadaa1;
@@ -386,6 +404,34 @@ li>h1 {
     color: color-mix(in oklab, var(--color-white) 60%, transparent);
   }
 }
+li>img {
+  height: 120%;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  scale: 0.85;
+}
+.wrapper-img {
+  animation: imageScrollerSmallScreen 5s infinite linear;
+}
+@layer utilities {
+  @keyframes imageScrollerBigScreen {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-105%);
+    }
+  }
+  @keyframes imageScrollerSmallScreen {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-101.5%);
+    }
+  }
+}
 @media (min-width:768px) {
   li {
     padding: 2.5vw 0vw;
@@ -394,6 +440,29 @@ li>h1 {
     font-size: 7vw;
     font-weight: 600;
   }
+  .wrapper-img {
+    animation: imageScrollerBigScreen 5s infinite linear;
+  }
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-leading {
   syntax: "*";
@@ -442,6 +511,11 @@ li>h1 {
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
       --tw-leading: initial;
       --tw-font-weight: initial;
       --tw-backdrop-blur: initial;
