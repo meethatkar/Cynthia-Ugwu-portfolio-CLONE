@@ -84,20 +84,17 @@ sab li element ko select karo, uske ke baad li elems par ek mousemove lagao, hab
 function page2anim(){
      // ***************PAGE 2
     var li_list = document.querySelectorAll(".li-s");
-    var li_imgs = document.querySelectorAll(".li-s img");
-    // console.log(li_imgs);
 
-    li_list.forEach((li_div, index) => {
+    li_list.forEach((li_div) => {
+        let rotate = 0;
         let imgDiv = li_div.querySelector("img");
-        li_div.addEventListener("mousemove", (dets) => {
-            var diff = dets.clientY-li_div.getBoundingClientRect().top;
-            var halfHeight = li_div.getBoundingClientRect().height/2;
-            // console.log(halfHeight);
-            
-            var img_halfWidth = li_imgs[index].getBoundingClientRect().width/2;
-            console.log(img_halfWidth);
-            
 
+        function displayImg(dets){
+            var diff = dets.clientY-li_div.getBoundingClientRect().top;
+            rotateDif = gsap.utils.clamp(-20,20,(dets.clientX-rotate));
+            rotate = dets.clientX;
+            console.log(rotateDif);
+            
             // alert("entered")
             // cursor
             cursor_div.style.height = "80px";
@@ -116,16 +113,17 @@ function page2anim(){
                 opacity:1,
                 zIndex:10,
                 scale:1,
+                rotate:rotateDif,
                 top: `${diff-30}px`,
-                left:`${dets.clientX-30}px`
+                left:`${dets.clientX-30}px`,
              })
-            
-        })
-        li_div.addEventListener("mouseleave", () => {
-            // alert("entered")
-            // cusror
+        }
+
+        function hideImg(dets){
             cursor_div.style.height = "10px";
             cursor_div.style.width = "10px";
+            cursor_div.style.top = "0px";
+            cursor_div.style.left = "0px";
             cursor_div.style.opacity = 1;
             cursor_div.style.mixBlendMode = "difference";
             cursor_div.innerText = "";
@@ -139,8 +137,29 @@ function page2anim(){
                 zIndex:-1,
                 scale:0.85,
              })
+        }
+
+        li_div.addEventListener("mousemove", (dets) => {
+            displayImg(dets)
+        })
+
+        li_div.addEventListener("wheel",(dets)=>{
+            clearTimeout(imgTimeout);
+            displayImg(dets);
+            var imgTimeout = setTimeout(()=>{
+                hideImg(dets);
+            },1000);
+        })
+
+
+        li_div.addEventListener("mouseleave", (dets) => {
+            // alert("entered")
+            // cusror
+            hideImg(dets);
         })
     })
+
+
 }
 
 // alert("loaded");
