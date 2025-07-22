@@ -6,31 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cynthia Ugwu portfolio CLONE</title>
     <link rel="stylesheet" href="output.css">
+    <!-- locomotive -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"> -->
+    <!-- <link rel="stylesheet" href="locoscroll.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
 <body class="overflow-x-hidden">
-    <main class="w-screen bg-black ">
-        <nav
-            class="fixed top-0 left-0 h-[8%] w-screen px-5 md:px-10 flex justify-between items-center text-[0.95rem] md:text-[1.1rem] font-medium text-white backdrop-blur-lg">
-            <h2> Cynthia Ugwu </h2>
-            <h2> MENU* </h2>
-        </nav>
+    <nav
+        class="fixed top-0 left-0 h-[8%] w-screen px-5 md:px-10 flex justify-between items-center text-[0.95rem] md:text-[1.1rem] font-medium text-white backdrop-blur-lg z-50">
+        <h2> Cynthia Ugwu </h2>
+        <h2> MENU* </h2>
+    </nav>
+    <div id="cursor" class="h-[10px] w-[10px] fixed z-55 bg-white rounded-full transition-all ease-linear hidden md:flex pointer-events-none items-center justify-center font-medium"></div>
+    <main class="w-screen bg-black " id="main-div">
         <div id="page-1"
             class="h-screen w-screen px-5 md:px-10 pt-20 pb-5 text-white flex flex-col items-end justify-between">
             <div id="text-div" class="text-gray-400 w-full">
-                <h1 class="text-[15.5vw] md:text-[10vw] font-medium leading-[1] md:leading-[0.9]"> PRODUCT </h1>
+                <h1 class="text-[15.5vw] md:text-[10vw] font-medium overflow-hidden leading-[1] md:leading-[0.9]"> <span class="inline-block translate-y-[100%] down-to-up">PRODUCT</span> </h1>
                 <div id="text-div-2" class="w-full text-end md:w-fit md:text-start md:ml-[10vw]">
-                    <h1 class="text-[15.5vw] md:text-[10vw] font-medium leading-[1] md:leading-[0.9]"> DESIGNER </h1>
-                    <h5 class="text-[0.6rem] md:text-[1.3vw] md:text-end  md:mt-[1.5vh]"> BASED IN TORONTO</h5>
+                    <h1 class="text-[15.5vw] md:text-[10vw] font-medium overflow-hidden leading-[1] md:leading-[0.9]"> <span class="inline-block translate-y-[100%] down-to-up">DESIGNER</span> </h1>
+                    <h5 class="text-[0.6rem] md:text-[1.3vw] md:text-end  overflow-hidden md:mt-[1.5vh]"> <span class="inline-block -translate-y-[100%] up-to-down-1">BASED IN TORONTO</span></h5>
                 </div>
             </div>
             <div id="text-mid" class="text-end font-medium text-[3.5vw] md:text-[1.3vw] leading-[1.3] uppercase">
-                <h3>Available for Full Time & Freelance <br>
-                    work from Sep ‘24</h3>
+                <h3 class="overflow-hidden"><span class="inline-block -translate-y-[100%] up-to-down-2">Available for Full Time & Freelance</span> 
+                    </h3>
+                    <h3 class="overflow-hidden"><span class="inline-block -translate-y-[100%] up-to-down-2">work from Sep ‘24 </span></h3>
             </div>
             <div id="text-end"
-                class="flex justify-between items-center w-full uppercase text-[3.5vw] md:text-[1.3vw]  font-medium">
+                class="flex justify-between items-center w-full uppercase text-[3.5vw] md:text-[1.3vw]  font-medium opacity-0">
                 <div class="end-txt flex items-start leading-[1.3]">
                     <h3 class="w-3/4">Previously worked at
                         Code and Theory</h3>
@@ -97,7 +103,49 @@
                 <img src="./assets/logos/Zappos.svg" alt="">
             </div>
         </div>
+        <div id="page-4"
+            class="h-screen w-screen px-5 flex flex-col md:flex-row items-center justify-center text-white my-[5vh] md:w-8/12 md:gap-[5vw] md:ml-[25vw]">
+            <img src="./assets/cynthia.webp" alt="" class="md:h-1/2">
+            <div id="text-div" class="flex flex-col mt-[4vh] items-start justify-center">
+                <h5 class="opacity-50 text-[4vw] md:text-[1.5vw]">(ABOUT ME)</h5>
+                <p class="text-[3.8vw] md:text-[1.1vw] mb-[2vh]">I'm a product and motion designer who loves creating
+                    things that are not just eye candy but also fix life's little hiccups. When I'm not glued to my
+                    computer like a robot or scribbling on my iPad, you might catch me leveling up in video games,
+                    snapping photos like a wannabe pro, or watching football because football is life. My design
+                    philosophy? Keep it snazzy, make it work, and sprinkle in a bit of fun. I'm the designer you want on
+                    your team if you want people to exclaim, "I need that in my life!".</p>
+                <button
+                    class="px-3 py-1 border-2 border-gray-300 bg-white/90 text-black rounded-full hover:bg-black hover:text-white transition-all duration-500 linear font-medium">
+                    Let's talk </button>
+            </div>
+        </div>
+        <footer class="flex flex-col items-start gap-[15vh] text-white px-5 md:px-10 pb-[1vh]">
+            <div id="footer-1" class="uppercase leading-[1.3]">
+                <h3 class="opacity-70 text-[3.5vw] md:text-[1vw]"> oops, almost forgot....</h3>
+                <h2 class="text-[4.5vw] md:text-[1.5vw] font-medium">subscribe to my youtube channel <i
+                        class="ri-arrow-right-up-line inline-block"></i></h2>
+            </div>
+            <div id="footer-2" class="uppercase w-full flex flex-col md:flex-row md:justify-between md:items-center">
+                <div id="links"
+                    class="flex text-[3.3vw] md:text-[1.1vw] items-center justify-between w-full md:w-4/12 font-medium border-b-2 border-b-gray-500 md:border-b-0 pb-[2vh] md:pb-0">
+                    <h3>linkedin</h3>
+                    <h3>x/twitter</h3>
+                    <h3>instagram</h3>
+                    <h3>youtube</h3>
+                </div>
+                <div id="time"
+                    class="flex w-full md:w-2/12 items-center justify-between text-[3.7vw] md:text-[1.1vw] font-medium pt-[2vh] md:pt-0">
+                    <h3>© 2025</h3>
+                    <h3 id="time-div">3:49 AM ET </h3>
+                </div>
+            </div>
+        </footer>
     </main>
+    <!-- locomotive -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 
