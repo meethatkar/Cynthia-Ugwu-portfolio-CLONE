@@ -415,10 +415,6 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .duration-200 {
-    --tw-duration: 200ms;
-    transition-duration: 200ms;
-  }
   .duration-500 {
     --tw-duration: 500ms;
     transition-duration: 500ms;
@@ -613,6 +609,7 @@ li {
   padding: 4vw 0vw;
   text-transform: uppercase;
   position: relative;
+  z-index: 60;
 }
 li:nth-last-child(1) {
   border-bottom: 1px solid #dadadaa1;
@@ -627,9 +624,11 @@ li>h1 {
 li>img {
   height: 120%;
   position: absolute;
-  z-index: -1;
+  z-index: 10;
   opacity: 0;
   scale: 0.85;
+  pointer-events: none;
+  transform: translate(-50%,-50%);
 }
 .wrapper-img {
   animation: imageScrollerSmallScreen 10s infinite linear;
