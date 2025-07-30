@@ -13,27 +13,98 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
-<body class="overflow-x-hidden">
+<!-- 
+    1st revision-> 23rd july
+    2nd Revision-> 28th july
+-->
+
+<body class="overflow-x-hidden bg-gray-300">
     <nav
-        class="fixed top-0 left-0 h-[8%] w-screen px-5 md:px-10 flex justify-between items-center text-[0.95rem] md:text-[1.1rem] font-medium text-white backdrop-blur-lg z-50">
+        class="fixed top-0 left-0 h-[8%] w-screen px-5 md:px-10 flex justify-between items-center text-[0.95rem] md:text-[1.1rem] font-medium text-white backdrop-blur-xs z-50">
         <h2> Cynthia Ugwu </h2>
-        <h2> MENU* </h2>
+        <h2 type="button" class="hover:cursor-pointer" id="open-menu"> <span>MENU*</span> </h2>
     </nav>
-    <div id="cursor" class="h-[10px] w-[10px] fixed z-55 bg-white rounded-full transition-all ease-linear hidden md:flex pointer-events-none items-center justify-center font-medium"></div>
-    <main class="w-screen bg-black " id="main-div">
+    <div id="cursor"
+        class="h-[10px] w-[10px] fixed z-55 bg-white rounded-full transition-all ease-linear hidden md:flex pointer-events-none items-center justify-center font-medium">
+    </div>
+    <div id="menu" class="fixed inset-0 h-screen w-screen z-20 bg-black">
+            <div id="circle"
+                class="rounded-full h-[200vh] w-[200vh] bg-gray-800 absolute z-20 top-[50%] -left-[100vh] -translate-y-[50%] border-2 border-gray-500 text-white rotate-100">
+                <div class="stripe str1  -translate-y-1/2 -rotate-[20deg]">
+                    <div class="first">
+                        <div class="smcircle"></div>
+                    </div>
+                    <div class="sec">
+                        <h4> About Me </h4>
+                        <h6>   My journey, skills, and passion for web experiences </h6>
+                    </div>
+                </div>
+                <div class="stripe str2  -translate-y-1/2 -rotate-[10deg]">
+                    <div class="first">
+                        <div class="smcircle"></div>
+                    </div>
+                    <div class="sec">
+                        <h4> My Work </h4>
+                        <h6> Curated projects showcasing frontend solutions. </h6>
+                    </div>
+                </div>
+                <div class="stripe str3  -translate-y-1/2 -rotate-[0deg]">
+                    <div class="first">
+                        <div class="smcircle"></div>
+                    </div>
+                    <div class="sec">
+                        <h4> INSTAGRAM </h4>
+                        <h6> Click here to follow and connect </h6>
+                    </div>
+                </div>
+                <div class="stripe str4  -translate-y-1/2 rotate-[10deg]">
+                    <div class="first">
+                        <div class="smcircle"></div>
+                    </div>
+                    <div class="sec">
+                        <h4> GITHUB </h4>
+                        <h6> click here to explore my github </h6>
+                    </div>
+                </div>
+                <div class="stripe str5  -translate-y-1/2 rotate-[20deg]">
+                    <div class="first">
+                        <div class="smcircle"></div>
+                    </div>
+                    <div class="sec">
+                        <h4> LINKEDIN </h4>
+                        <h6> click here to connect professionally </h6>
+                    </div>
+                </div>
+            </div>
+            <div id="panel">
+                <div class="mnCircle"></div>
+                <div class="mnCircle"></div>
+                <div class="mnCircle"></div>
+                <div class="mnCircle"></div>
+                <div class="mnCircle"></div>
+            </div>
+            <button id="close-menu" class="absolute top-[5%] right-[3%] rounded-full text-[3vw] text-white opacity-80 hover:opacity-100 hover:rotate-[90deg] ease-in-out transition-all duration-500 h-[6vh] flex items-center justify-center"> <i class="ri-close-circle-fill"></i> </button>
+        </div>
+    <main class="w-screen bg-black relative z-40" id="main-div">
+        
         <div id="page-1"
             class="h-screen w-screen px-5 md:px-10 pt-20 pb-5 text-white flex flex-col items-end justify-between">
             <div id="text-div" class="text-gray-400 w-full">
-                <h1 class="text-[15.5vw] md:text-[10vw] font-medium overflow-hidden leading-[1] md:leading-[0.9]"> <span class="inline-block translate-y-[100%] down-to-up">PRODUCT</span> </h1>
+                <h1 class="text-[15.5vw] md:text-[10vw] font-medium overflow-hidden leading-[1] md:leading-[0.9]"> <span
+                        class="inline-block translate-y-[100%] down-to-up">PRODUCT</span> </h1>
                 <div id="text-div-2" class="w-full text-end md:w-fit md:text-start md:ml-[10vw]">
-                    <h1 class="text-[15.5vw] md:text-[10vw] font-medium overflow-hidden leading-[1] md:leading-[0.9]"> <span class="inline-block translate-y-[100%] down-to-up">DESIGNER</span> </h1>
-                    <h5 class="text-[0.6rem] md:text-[1.3vw] md:text-end  overflow-hidden md:mt-[1.5vh]"> <span class="inline-block -translate-y-[100%] up-to-down-1">BASED IN TORONTO</span></h5>
+                    <h1 class="text-[15.5vw] md:text-[10vw] font-medium overflow-hidden leading-[1] md:leading-[0.9]">
+                        <span class="inline-block translate-y-[100%] down-to-up">DESIGNER</span> </h1>
+                    <h5 class="text-[0.6rem] md:text-[1.3vw] md:text-end  overflow-hidden md:mt-[1.5vh]"> <span
+                            class="inline-block -translate-y-[100%] up-to-down-1">BASED IN TORONTO</span></h5>
                 </div>
             </div>
             <div id="text-mid" class="text-end font-medium text-[3.5vw] md:text-[1.3vw] leading-[1.3] uppercase">
-                <h3 class="overflow-hidden"><span class="inline-block -translate-y-[100%] up-to-down-2">Available for Full Time & Freelance</span> 
-                    </h3>
-                    <h3 class="overflow-hidden"><span class="inline-block -translate-y-[100%] up-to-down-2">work from Sep ‘24 </span></h3>
+                <h3 class="overflow-hidden"><span class="inline-block -translate-y-[100%] up-to-down-2">Available for
+                        Full Time & Freelance</span>
+                </h3>
+                <h3 class="overflow-hidden"><span class="inline-block -translate-y-[100%] up-to-down-2">work from Sep
+                        ‘24 </span></h3>
             </div>
             <div id="text-end"
                 class="flex justify-between items-center w-full uppercase text-[3.5vw] md:text-[1.3vw]  font-medium opacity-0">

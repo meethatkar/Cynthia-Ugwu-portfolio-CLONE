@@ -16,11 +16,83 @@
 html,body{
     height: 100%;
     width: 100%;
+    /* overflow: hidden; */
 }
 
 
 #cursor{
     mix-blend-mode:difference;
+}
+
+.stripe{
+    position: absolute;
+    transform: translate(0%, -10%);
+    top: 50%;
+    left: 50%;
+    /* background-color: antiquewhite; */
+    width:80%;
+    height:60px;
+    transform-origin: 0% 50%;
+    display: flex;
+    opacity: 0.5;
+}
+
+.first{
+    width: 63.2%;
+    height: 100%;
+    position: relative;
+    /* background-color: black; */
+}
+.smcircle{
+    width: 0.5vw;
+    height: 0.5vw;
+    position: absolute;
+    top: 50%;
+    right: 0.5%;
+    transform: translate(0%, -50%);
+    background-color: rgb(222, 222, 222);
+    border-radius: 50%;
+}
+.sec{
+    width: calc(100%-63.2%);
+    height: 100%;
+    /* background-color: yellow; */
+    padding-left: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sec h4{
+    font-size: 1.5vw;
+}
+.sec h6{
+    font-size: 1.1vw;
+    font-weight: 600;
+    opacity: 0.6;
+    line-height: 1.1;
+}
+#panel{
+    height: 30%;
+    width: 3%;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    transform: translate(3%,-50%);
+    /* background-color: greenyellow; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.mnCircle{
+    height: 1vw;
+    width: 1vw;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.5;
+}
+.mnCircle:hover{
+    cursor: pointer;
 }
 
 li{
