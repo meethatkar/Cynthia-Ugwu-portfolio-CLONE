@@ -15,6 +15,8 @@ function cursorMove(xScale, yScale) {
         clearTimeout(timeout);
         // console.log(dets);
         cursor_div.style.transform = `translate(${dets.x - 5}px,${dets.y - 5}px) scale(${xScale},${yScale})`;
+
+        // timeout banaya hai, taki jab mouse hold ho jaye tab normal state mai aaa jaye. (nikal ke dekho, phir pata chalega kyu add kiya tha, [scale reamins paused])
         timeout = setTimeout(() => {
             cursor_div.style.transform = `translate(${dets.x - 5}px,${dets.y - 5}px) scale(1,1)`;
         }, 50);
@@ -78,7 +80,7 @@ function page1Anim() {
 // ********PAGE 2 ANIM
 
 /*
-sab li element ko select karo, uske ke baad li elems par ek mousemove lagao, hab muosemove ho to ye karo ki mouse kaha par hai, jiska matlab ye hia ki mouse ki x and y position pata karo, ab mouse ki x, y position ke badle us image ko show karo and us image ko move karo, move karte waqt rotate karo and jaise jaise mouse tezt chale waise wasie roation bu text ha jaye
+sab li element ko select karo, uske ke baad li elems par ek mousemove lagao, ab muosemove ho to ye pata karo ki mouse kaha par hai, jiska matlab ye hia ki mouse ki x and y position pata karo, ab mouse ki x, y position ke badle us image ko show karo and us image ko move karo, move karte waqt rotate karo and jaise jaise mouse tezt chale waise wasie roation bhi tez ha jaye
 */
 
 function page2anim(){
@@ -90,8 +92,11 @@ function page2anim(){
         let imgDiv = li_div.querySelector("img");
 
         function displayImg(dets){
-            var diff = dets.clientY-li_div.getBoundingClientRect().top;
-            rotateDif = gsap.utils.clamp(-20,20,(dets.clientX-rotate));
+            // var diff = dets.clientY-li_div.getBoundingClientRect().top;
+            console.log(dets);
+            var diff = dets.offsetY;
+            
+            var rotateDif = gsap.utils.clamp(-20,20,(dets.clientX-rotate));     /* difference between start point and end point will be stored */
             rotate = dets.clientX;
             console.log(rotateDif);
             
@@ -115,7 +120,7 @@ function page2anim(){
                 scale:1,
                 rotate:rotateDif,
                 top: `${diff-30}px`,
-                left:`${dets.clientX-30}px`,
+                left:`${dets.clientX-55}px`,
              })
         }
 
@@ -162,11 +167,94 @@ function page2anim(){
 
 }
 
+var menu = document.querySelector("#menu");
+var main = document.querySelector("main");
+var circle = document.querySelector("#circle");
+var mnCircles = document.querySelectorAll(".mnCircle");
+var stripe = document.querySelectorAll(".stripe");
+
+function menuAnim(){
+    let active = 3;
+    gsap.to(circle,{
+        rotate:0,
+        ease: Expo.easeInOut,
+        // delay:0.5,
+        duration:1.5
+    })
+
+    gsap.to(mnCircles[active-1],{
+        opacity: 1
+    })
+
+    gsap.to(stripe[active-1],{
+        opacity: 1
+    })
+
+    mnCircles.forEach((circle,index)=>{
+        circle.addEventListener("click",()=>{
+            gsap.to("#circle",{
+                rotate: (3-(index+1))*10,
+                duration:1.5,
+                ease: Expo.easeInOut
+            })
+
+            greyout();
+
+            gsap.to(circle,{
+                opacity:1,
+            })
+            gsap.to(stripe[index],{
+                opacity:1,
+            })
+        })
+    })
+
+    function greyout(){
+        gsap.to(mnCircles,{
+            opacity:0.5,
+        })
+        gsap.to(stripe,{
+            opacity:0.5,
+        })
+    }
+}
+
+document.querySelector("#open-menu").addEventListener("click",()=>{
+    gsap.to(menu,{
+        opacity:1,
+        zIndex:60,
+        ease: "power3.inOut",
+        duration:1
+    })
+    gsap.to(main,{
+        opacity:0,
+        zIndex:10,
+        ease: "power3.inOut",
+        // duration:0.5
+    })
+    menuAnim();
+})
+
+document.querySelector("#close-menu").addEventListener("click",()=>{
+    gsap.to(menu,{
+        opacity:0,
+        zIndex:10,
+        ease: "power3.inOut",
+        duration:1
+    })
+    gsap.to(main,{
+        opacity:1,
+        zIndex:40,
+        ease: "power3.inOut",
+        // duration:0.5
+    })
+})
+
+
 // alert("loaded");
 document.addEventListener("DOMContentLoaded", () => {
 
     page1Anim();
 
    page2anim();
-
 })
